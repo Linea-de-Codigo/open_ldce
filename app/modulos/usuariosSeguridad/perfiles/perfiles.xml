@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<formularios >
+    <formulario id = "1" columas = "2" ancho = "100%" titulo = "" >
+        <titulo>Perfiles</titulo>
+        <datos tablaBuscar="perfil" tabla = "perfil" llave = "idPerfil" conexion= "con1" guardar = "1" eliminar = "1" buscar = "1"  />
+         <campo autonumerico="1"  nombre = "idPerfil"  tipo = "oculto" listar = "1" guardar = "1" >Codigo</campo>
+        <campo  nombre = "nombrePerfil"  tipo = "texto" listar = "1" validar = "requerido" tamano="15" guardar = "1" >Nombre Perfil</campo>
+        <campo  nombre = "descripcion"  tipo = "texto" listar = "1" validar = "requerido" tamano="20" guardar = "1" >Descripción</campo>
+        <campo nombre="activo" tipo ="grupo_opciones" ancho = "100%" guardar = "1" valores="1|0" titulos="Sí|No" predeterminado="" evento="">Activo:</campo>
+         <grilla llaveExterna  = "idPermiso" tabla = "(select permiso.*, modulo.nombreModulo from permiso inner join modulo on permiso.idModulo = modulo.idModulo) as T" titulo = "Permisos del Perfil" llave ="idPerfil" campos = "Cosn.:idPerfil:oculto|Id Prospecto:idPermiso:oculto|Modulo:nombreModulo:texto" formaAdministra = "permiso.xml"  />
+    </formulario>
+</formularios> 

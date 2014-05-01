@@ -1,0 +1,50 @@
+Registro Formulario
+http://www.killyam.com/ecodirectorio/ambiente/ambiente/ecodir/regform.php
+Administracion
+http://www.killyam.com/ecodirectorio/ambiente/ambiente/ecodir/admin/login.php Actualizacion
+http://www.killyam.com/ecodirectorio/ambiente/ambiente/ecodir/editaInfoUsuario.php
+
+Se corrigio:
+
+- subir el nit arriba de contraseña --- Corregido
+
+- numero de nomeclatura debe ser solo numero ..recibe texto -- Corregido
+
+
+
+-genera emisiones
+
+No. de Radicado: debe tener maximo 5 numeros -- Corregido
+
+
+-Requiere registro de libro de operaciones y/o certificación para exportación e importación (Decreto 1791 de 1996, Resoluciones 1367 de 2000 y 454 de 2001) 
+
+Número de radicado última comunicación a la SDA:  se encuentra desabilitado.. debe habilitarse si la opcion es si. -- Corregido
+
+- Requiere registro de elementos de publicidad exterior visual (Decreto 959 de 2000):
+
+se require validacion de campos llenos -- Corregido
+
+-Requiere registro generadores de residuos peligrosos 
+repitio el comentario de la anterios debe ser Requiere registro de acopiador de aceites usados -- Corregido
+
+-Número de radicado última comunicación a la SDA:
+no habilita al decir si en la anterior -- Corregido
+
+-  (Requiere registro generadores de residuos peligrosos).... Número de radicado última comunicación a la SDA:
+se encuentra habilitado ...si la respuesta es NO desabilitado -- Corregido
+
+-Indique los ultimos radicados de comunicados remitidios ala secretaria distrital de ambiente que considere necesrios dar a conocer
+
+obligatorios  -- No es claro, esta seguro que deberia ser obligatorio genera confusion por la exptresion "que considere necesrios dar a conocer".
+
+- los campos de numero de registro y numero de adicado reciben textos si es asi deberian quedar en mayusculas?? -- Indicar Espceificametne cuales
+
+- Otros Corregidos
+
+Admin y Panel del usuario
+- Carga correctamente todos los campo
+- Edita correctamente la calve
+- Muestra y oculta los campos en el momento adecuado
+- Guarda todos los 15 campos de Requiere registro de elementos de publicidad exterior visual (Decreto 959 de 2000)
+

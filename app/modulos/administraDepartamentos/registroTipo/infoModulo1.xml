@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modulo>
+    <titulo>Tipo Centro Costos</titulo>
+    <iniciar>tipoDepartamento.xml</iniciar>
+    <tipo>apoyoSistema</tipo>
+    <id>tipoCentroCostos</id>
+    <js>tipoDepartamento.js</js>
+</modulo>

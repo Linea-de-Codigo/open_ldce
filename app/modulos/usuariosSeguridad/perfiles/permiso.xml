@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<formularios >
+    <formulario id = "1" columas = "1" ancho = "100%" titulo = "" >
+        <titulo>Permisos</titulo>
+        <datos tablaBuscar="permiso" tabla = "permiso" llave = "idPermiso" conexion= "con1" guardar = "1" eliminar = "1"  />
+        <campo autonumerico="1"  nombre = "idPermiso"  tipo = "oculto" listar = "1" guardar = "1" >Codigo</campo>
+        <campo nombre = "idPerfil"  tipo = "oculto" listar = "1"   validar = "requerido" guardar = "1">Perfil</campo>
+        <campo nombre = "idModulo"  tipo = "lista_ajax" listar = "1"  tomarLista = "modulo|idModulo|nombreModulo" validar = "requerido" guardar = "1">Modulo</campo>
+        <campo nombre = "acciones"  tipo = "grupo_check"  titulos = "Guardar|Eliminar|Buscar" valores = "Guarda|Elimina|Busca" validar = "requerido" guardar = "1">Acciones</campo>
+    </formulario>
+</formularios> 

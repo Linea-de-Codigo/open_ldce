@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modulo>
+    <titulo>$usuarios</titulo>
+    <iniciar>registroUsuarios.xml</iniciar>
+    <id>administrarUsuarios</id>
+    <js>usuarios.js</js>
+</modulo>

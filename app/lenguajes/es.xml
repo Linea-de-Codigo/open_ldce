@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lenguaje sector = "agricola" idioma="español">
+    <agregarDepartamento>Departamentos</agregarDepartamento>
+    <idDependencia>Cod.</idDependencia>
+    <nombreDependencia>Unidad Productiva</nombreDependencia>
+    <descripcionDependencia>Descripción</descripcionDependencia>
+    <usuariosSeguridad>Usuarios y Seguridad</usuariosSeguridad>
+    <usuarios>Administrar Usuarios</usuarios>
+    <agreagarTipoDependencia>Tipo departamento</agreagarTipoDependencia>
+    <terceros>Terceros</terceros>
+</lenguaje>

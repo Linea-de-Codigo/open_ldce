@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modulo>
+    <titulo>Permisos</titulo>
+    <iniciar>permiso.xml</iniciar>
+    <id>administrarPermisos</id>
+    
+</modulo>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modulo>
+    <titulo>Periodos</titulo>
+    <iniciar>periodo.xml</iniciar>
+    <js>periodo.js</js>
+    <css>periodo.css</css>
+    <tipo>misional</tipo>
+    <descripcion>Periodo del Sistema</descripcion>  
+   <id>periodos</id>
+    <nombreComponente>Core</nombreComponente>
+</modulo>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modulo>
+    <titulo>Perfiles</titulo>
+    <iniciar>perfiles.xml</iniciar>
+    <id>perfiles</id>
+    <tipo>apoyoSistema</tipo>
+</modulo>

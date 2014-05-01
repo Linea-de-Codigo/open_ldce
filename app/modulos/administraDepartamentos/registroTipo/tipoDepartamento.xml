@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<formularios >
+    <formulario id = "1" columas = "2" ancho = "95%">
+        <titulo>Tipo Departamentos</titulo>
+        <datos tabla = "tipoDepartamento" llave = "idTipoDepartamento" conexion= "con1" guardar = "1" eliminar = "1" buscar = "1"/>
+        <campo nombre="infGlobal" tipo="separador" ancho = "100%" >General</campo>
+        <campo  autonumerico="1" nombre = "idTipoDepartamento"  tipo = "texto" listar = "1" validar = "requerido" tamano="10" guardar = "1" >Cons.</campo>
+        <campo nombre = "nombre" validar = "requerido" tipo = "texto" tamano = "20" guardar = "1" listar = "1" >Nombre</campo>
+        <campo nombre="separadorOpciones" tipo="separador" ancho = "100%" >Opciones</campo>
+        <campo nombre="opciones" tipo ="grupo_check" ancho = "100%" guardar = "0" valores="0|" titulos="No definida|" predeterminado="" evento="">Opciones Generales:</campo>
+    </formulario>
+</formularios> 

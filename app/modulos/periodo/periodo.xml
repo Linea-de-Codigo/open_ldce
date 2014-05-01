@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<formularios >
+	<formulario clases = "" id = "1" columas = "1" ancho = "100%"  >
+		<titulo>Periodos</titulo>
+		<datos fechador = "" tablaBuscar = "0003_periodo" tabla = "0003_periodo" llave = "idPeriodo"  guardar="1" eliminar="0" buscar="1"  />
+		<auditoria campo ="activo" estados = "Activo:1|Inactivo:0"  permitidos = "1" titulo = "Activo" />
+		<campo  autonumerico = "1"         nombre = "idPeriodo"  tipo = "oculto" validar = "" tamano = "0" ancho = ""  listar = "1"  guardar = "1" >idPeriodo</campo>
+		<campo           nombre = "fechaInicia"  tipo = "fecha" validar = "" tamano = "0" ancho = ""  listar = "1"  guardar = "1" >Fecha Inicia</campo>
+		<campo           nombre = "fechaTermina"  tipo = "fecha" validar = "" tamano = "0" ancho = ""  listar = "1"  guardar = "1" >Fecha Termina</campo>
+		<campo           nombre = "ano"  tipo = "texto" validar = "" tamano = "15" ancho = ""  listar = "1"  guardar = "1" ><![CDATA[ Año  ]]></campo>
+		<campo   valores= "1|0" titulos = "Si|No"       nombre = "predeterminado"  tipo = "grupo_opciones" validar = "" tamano = "0" ancho = ""  listar = "1"  guardar = "1" >Predeterminado</campo>
+		<campo           nombre = "nombre"  tipo = "texto" validar = "" tamano = "0" ancho = ""  listar = "1"  guardar = "1" >Nombre</campo>
+	</formulario>
+	<fechaCompilacion>2012-08-03</fechaCompilacion>
+	<descripcion>periodo </descripcion>
+	<key>93071978248ebc18a33c37b4c60be6de</key>
+</formularios>
+ 

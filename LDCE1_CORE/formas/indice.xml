@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<formularios >
+    <formulario id = "1" columas = "2" ancho = "80%" titulo = "Formulario de Prueba" >
+        <datos tabla = "Objeciones" llave = "idObjecion" conexion= "con1" guardar = "1" eliminar = "1" buscar = "1" />
+        <campo nombre = "idObjecion" tipo = "texto" validar = "diligenciado" guardar = "1" >Id Objeción</campo>
+        <campo nombre = "FechaObjecion" tipo = "fecha" validar = "numero" tamano = "10" guardar = "1" >Fecha</campo>
+        <campo nombre = "NoFactura" tipo = "texto" validar = "a" guardar = "1" bandera = "alt='Hola'">Número Factura</campo>
+        <campo nombre = "numero2" tipo = "fechas" validar = "b" guardar = "1">Fecha</campo>
+        <campo nombre = "clave_externa" tipo = "lista_ajax_doble" tomarLista = "Facturas|NoFactura|NombreUsuario" validar = "" guardar = "1">Factura y Cliente</campo>
+    </formulario>
+</formularios>

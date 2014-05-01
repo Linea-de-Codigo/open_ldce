@@ -1,0 +1,457 @@
+<?php
+
+error_reporting(E_ALL);
+
+/**
+ * Clase para armar la Interfase de menus y sistemas de navegacion del sistema
+ * en la lectura de xml dentro de cada modulo.
+ *
+ */
+
+if (0 > version_compare(PHP_VERSION, '5')) {
+    die('Este Modulo requiere PHP 5');
+}
+
+/* user defined includes */
+// section 127-0-1-1-4c55a158:13022643f5b:-8000:0000000000000B6C-includes begin
+// section 127-0-1-1-4c55a158:13022643f5b:-8000:0000000000000B6C-includes end
+
+/* user defined constants */
+// section 127-0-1-1-4c55a158:13022643f5b:-8000:0000000000000B6C-constants begin
+// section 127-0-1-1-4c55a158:13022643f5b:-8000:0000000000000B6C-constants end
+
+/**
+ * Clase para armar la Interfase de menus y sistemas de navegacion del sistema
+ * en la lectura de xml dentro de cada modulo.
+ *
+ */
+class navegacion
+{
+    // --- ASSOCIATIONS ---
+
+
+    // --- ATTRIBUTES ---
+
+    /**
+     * Variable donde se almacenta el nombre de la carpeta de Modulo.
+     *
+     * @access public
+     */
+    public $modulo = NULL;
+
+
+    /**
+     * Array que contiene la infromacion necesaria para construir cada uno de
+     * modulos.
+     *
+     * @access private
+     */
+    private $informacion="";
+   
+    /**
+     * Variable que almacena la informacion a cerca de la Miga para el armado de
+     * pagina array que recoge el contenido de cada una de las carpetas de la
+     * de modulos
+     *
+     * @access private
+     */
+    private $infoMiga=NULL;
+    
+      
+    // --- OPERATIONS ---
+
+    /**
+     * Funcion Constructora de la clase
+     *
+     * @access public
+     * @author Dimar Borda
+     * @param  modulo Parametro que recibe el nombre del modulo (Carpeta donde se encuentran almacenados los xml)
+     * @return mixed
+     * @since 24 de Mayo de 2011
+     * @version 1
+     */
+    public function __construct($modulo)
+    {
+        // section 127-0-1-1-4c55a158:13022643f5b:-8000:0000000000000B70 begin
+        $this->modulo = $modulo;
+        $this->carga_informacion();
+        // section 127-0-1-1-4c55a158:13022643f5b:-8000:0000000000000B70 end
+    }
+
+    /**
+     * Short description of method armar_mapa
+     *
+     * @access public
+     * @author firstname and lastname of author, <author@example.org>
+     * @return mixed
+     */
+    public function armar_mapa($tipo=NULL)
+    {
+        // section 127-0-1-1-4c55a158:13022643f5b:-8000:0000000000000B81 begin
+        $salida = NULL;
+        //$salida.= "<div id = \"mapa\">";
+	if (!isset($_SESSION))
+		session_start();
+        
+         if (!isset ($_SESSION['empleado'.__baseDatos])){
+              $salida.="<h1>La session ha Caducado por Favor <a href = \"core/salir.php\">Cerrar el Sistema</a></h1>";       
+              echo $salida;
+              die();
+         }      
+        
+        
+        if($this->informacion){
+        foreach ($this->informacion as $info) {
+            if ($tipo == NULL || $tipo ==  $info['tipo']){
+            $archivo = $info['archivo'];
+            //echo "-".$archivo;
+           
+	    $_POST = null;
+            $campos = array("*");
+            $_GET['tabla'] = "permiso";
+            $_GET['accion'] = "buscar";
+            $filtro = array("idModulo"=>$info['idModulo'],"idPerfil"=>$_SESSION['perfil'.__baseDatos]);
+
+	include  '../negocio/RecibeSolicitud.php';
+	    
+	    
+	if ($buscarRegistro || $info['esAgrupador'] == 1){
+	    $javaScript = "cargar('$archivo','dependenciaList','','','".$info['carpetaModulo']."/".$info['js']."','".$info['carpetaModulo']."/".$info['css']."',$info[esAgrupador],'$info[carpetaModulo]','$info[idModulo]')";
+	}else{
+		$javaScript = "alert('No tiene permisos')";
+	}
+	    
+            if ($info['esAgrupador'] == 1)                
+                $salida.= "<div class = \"itemMapa\" style = \"cursor:pointer;\" ><span onclick = \"$javaScript\">".$info['titulo']."</span><div class=\"subItemMapa\" id = \"$info[carpetaModulo]\"></div></div>";
+            else
+                $salida.= "<div class = \"itemMapa\" style = \"cursor:pointer;\" onclick = \"$javaScript\"><span>".$info['titulo']."</span></div>";
+           }
+        }
+        }else{ $salida.="<div align = \"center\">No hay Modulos Disponibles</div>" ;}
+        //$salida.="</div>";
+        return $salida;
+        // section 127-0-1-1-4c55a158:13022643f5b:-8000:0000000000000B81 end
+    }
+   
+    
+
+    /**
+     * Funcion para armar las breadcums
+     *
+     * @access public
+     * @author firstname and lastname of author, <author@example.org>
+     * @return mixed
+     */
+    public function armar_migas()
+    {
+        // section 127-0-1-1-4c55a158:13022643f5b:-8000:0000000000000B83 begin
+        $salida = "<div id = \"armar_migas\">";
+        $aux = NULL;
+        $cuantos = count($this->infoMiga);
+        $aux = $this->infoMiga;
+        
+        for ($x=$cuantos-1;$x>=0;$x--){
+            $archivo = $aux[$x]['archivo'];
+            if ($x==0)
+                $javaScript = "cargar('$archivo','mapa','','','".$aux[$x]['ruta']."/".$aux[$x]['js']."','".$aux[$x]['ruta']."/".$aux[$x]['css']."')";
+            else
+                $javaScript = "cargar('$archivo')";
+            
+            $javaScript="";
+            $salida.= "<img src = \"images/separador.png\" alt= \"Separador\" /><spam style = \"cursor:pointer;\" onclick = \"$javaScript\" >".$aux[$x]['titulo']."</spam>";
+        }
+        $salida.="</div>";
+        
+        return $salida;
+        // section 127-0-1-1-4c55a158:13022643f5b:-8000:0000000000000B83 end
+    }
+
+    /**
+     * Short description of method armar_menu
+     *
+     * @access public
+     * @author firstname and lastname of author, <author@example.org>
+     * @return mixed
+     */
+    public function armar_menu()
+    {
+        // section 127-0-1-1-4c55a158:13022643f5b:-8000:0000000000000B85 begin
+       
+        // section 127-0-1-1-4c55a158:13022643f5b:-8000:0000000000000B85 end
+    }
+    /**
+     * Lee la Informacion de los archivos de configuracion del modulo y los
+     * en el array informacion.
+     *
+     * @access private
+     * @author Dimar Borda
+     * @return mixed
+     * @since 24 de Mayo de 2011
+     * @version 1
+     */
+    private function carga_informacion()
+    {
+     // section 127-0-1-1-4c55a158:13022643f5b:-8000:0000000000000FA6 begin
+     global $variables;
+     $archivo = NULL; $esAgrupador = NULL;
+     $rutaModulo = $variables->CAplicacion."modulos/".$this->modulo;
+     $directorio = NULL;
+    
+     if (is_dir($rutaModulo)){
+          $directorio = opendir($rutaModulo);
+         while($archivo = readdir($directorio))
+        {
+             $esAgrupador = NULL;
+             $titulo = NULL; 
+             $subdirectorio = $this->modulo.$archivo;
+            if(is_dir($variables->CAplicacion."modulos/".$subdirectorio) &&  $archivo != "." &&  $archivo != "..")
+            {
+                if (file_exists ($variables->CAplicacion."modulos/".$subdirectorio."/infoModulo.xml")){
+               
+                    $procesa_xml = new xml_procesador($variables->CAplicacion."modulos/".$subdirectorio."/infoModulo.xml",$variables->CAplicacion."lenguajes/".__lenguaje.".xml");
+                }else{
+                     continue 1;
+                }
+                
+                $titulo = $procesa_xml->tag("titulo",0);
+                $js=$procesa_xml->tag("js",0);
+                $css=$procesa_xml->tag("css",0);
+                $tipo=$procesa_xml->tag("tipo",0);
+		$idModulo = $procesa_xml->tag("id",0);
+                if ($procesa_xml->tag("iniciar",0)!=""){
+                   $archivos = $subdirectorio."/".$procesa_xml->tag("iniciar",0);
+                   $esAgrupador = 0;
+                }else{
+                   $archivos = $subdirectorio."/";
+                   $esAgrupador = 1;
+                }
+               
+                $this->informacion[] =  array( "carpetaModulo" => $subdirectorio,
+                                                "archivo" => $archivos,
+                                                 "titulo" => $titulo,
+                                                   "js"=>$js,
+                                                    "css"=>$css,
+                                                    "esAgrupador"=>$esAgrupador,
+                                                    "tipo"=>$tipo,
+						    "idModulo"=>$idModulo);             
+            }
+        }
+     }
+        
+        $lista = explode("/", $variables->CAplicacion."modulos/".$this->modulo);
+         $cuantos = count($lista);
+          //print_r(krsort($lista)) ;  
+         //echo $cuantos;
+         $y = 0;
+        for ($n=$cuantos-1;$n>=0;$n--){
+            //echo $lista[$n];
+            if ($lista[$n] == "modulos")
+                break; 
+           
+            for($x=0;$x<$n;$x++){
+            if (isset ($ruta[$y]))
+                $ruta[$y].= $lista[$x]."/";
+                else
+                $ruta[$y] = $lista[$x]."/";
+                    
+            }
+           //echo $ruta[$y];
+            
+            $estaRuta = explode("/",$ruta[$y]);
+            
+            $empezar = NULL;
+            $rutaMiga = NULL;
+            $empezar = 0;
+            foreach ($estaRuta as $value) {
+            if ($value != "")
+                if ($empezar == 1){
+                    if($rutaMiga== NULL)
+                    $rutaMiga = $value."/";
+                    else
+                    $rutaMiga.= $value."/";
+                }    
+                if($value == "modulos")
+                    $empezar = 1;
+            }
+            $rutaXML =  $ruta[$y]."infoModulo.xml";
+            if (file_exists ($rutaXML))
+                $procesaXmlMigas = new xml_procesador($rutaXML,$variables->CAplicacion."lenguajes/".__lenguaje.".xml");
+                else
+                continue 1;
+                
+            $titulo = $procesaXmlMigas->tag("titulo",0);
+            $js = $procesaXmlMigas->tag("js",0);
+            $css = $procesaXmlMigas->tag("css",0);
+            
+            if ($procesaXmlMigas->tag("iniciar",0)!= "NULL")
+                $archivos = $procesaXmlMigas->tag("iniciar",0);
+                else
+                $archivos = "";
+                    
+            $this->infoMiga[]  =  array( "carpetaModulo" => $lista[$n],
+                                                "archivo" =>$rutaMiga.$archivos,
+                                                "ruta"=>$rutaMiga,
+                                                 "titulo" => $titulo,
+                                                   "js"=>$js,
+                                                    "css"=>$css );   
+            $y++;
+              
+        }
+        
+        
+        // section 127-0-1-1-4c55a158:13022643f5b:-8000:0000000000000FA6 end
+    }
+        /**
+     * Funcion q Permite crear el boton para cerrar la sesion actual
+     *
+     * @access public
+     * @author Dimar Borda
+     * @return mixed
+     */
+    public function cerrarSesion()
+    {
+        $controlesUsuario = new controles();
+        // section 127-0-1-1--26cd31a:13056202a70:-8000:0000000000000B8D begin
+        $salida = "<div id = \"cerrarSesion\">".$controlesUsuario->boton("cerrarSession","Salir","cerrarSesion()")."</div>";
+        return $salida;
+        // section 127-0-1-1--26cd31a:13056202a70:-8000:0000000000000B8D end
+    }
+    
+    /**
+     * Funcion diseñada para armar la estructura de dependencias y todos los
+     * que estan propuestos en la arquitectura.
+     *
+     * @access public
+     * @author Dimar Borda
+     * @param  idDependencia Parametro que recibe la dependencuia actual en la que se esta trabajando.
+     * @return mixed
+     * @version 1.0
+     */
+    public function armarInterfase(db $objetoDB=NULL,$dependencia=NULL)
+    {
+        // section 127-0-1-1--620d402:132aba7ae3e:-8000:000000000000125F begin
+        $salida = NULL;
+        if (!isset($_SESSION))
+		session_start();
+       
+        if($dependencia==NULL)
+                 $dependencia = $_SESSION['idDependencia'.__baseDatos];
+        
+        
+        $adminstrar_registros = new tabla("_dependenciasPadres");
+        $condicion = array("idPadre"=>$dependencia);
+        $filasDependencia = $adminstrar_registros->consultarDatos("*",$condicion,"`idTipoDependencia`","","","", $objetoDB); 
+        //echo $filasDependencia;
+        $itemsMiga= NULL;        
+        
+        $sessionDep = $_SESSION['idDependencia'.__baseDatos];
+        setType($sessionDep,"integer");
+            
+        
+        //echo $dependencia;
+        
+        $_SESSION['idDependenciaActual'.__baseDatos] = $dependencia;
+        
+        $condicionMiga = array("idDependencia"=>$dependencia);
+        $filasMiga = $adminstrar_registros->consultarDatos("*",$condicionMiga,"`idTipoDependencia`","","","", $objetoDB); 
+	
+	if ($filasMiga[0]['idDependencia']!="")
+            $itemsMiga[].= "<span class=\"migaDependenciasActual\" onclick = \"cargarDependencia('".$filasMiga[0]['idDependencia']."')\">".$filasMiga[0]['nombre']."<img src = \"images/separador.png\" alt= \"Separador\" /></span>";
+        
+            $auxRompeMiga = $filasMiga[0]['idPadre'];
+        
+        if ($sessionDep!=$dependencia)
+            while($auxRompeMiga!=0){
+                $condicionMiga = array("idDependencia"=>$filasMiga[0]['idPadre']);
+                $filasMiga = $adminstrar_registros->consultarDatos("*",$condicionMiga,"`idTipoDependencia`","","","", $objetoDB); 
+                $itemsMiga[].= "<span class=\"migaDependencias\" onclick = \"cargarDependencia('".$filasMiga[0]['idDependencia']."')\" >".$filasMiga[0]['nombre']."<img src = \"images/separador.png\" alt= \"Separador\" /></span>";
+                $auxRompeMiga = $filasMiga[0]['idPadre'];
+            }
+        
+        $itemsMiga[] = "<span class=\"migaDependencias\" onclick = \"cargarDependencia('".$_SESSION['idDependencia'.__baseDatos]."')\">Inicio<img src = \"images/separador.png\" alt= \"Separador\" /></span>";
+        $textoMiga=NULL;
+        for ($n=count($itemsMiga)-1;$n>=0;$n--) {
+            $textoMiga.=$itemsMiga[$n];
+        }
+        
+        
+        $salida.="<div id = \"botonEsigma\" ></div><div id = \"migasDependencias\">$textoMiga</div></div><div style = \"position:fixed;bottom:0px;right:2px;cursor:pointer;z-index:1001;\" ><h3 style = \"padding:4px;background:#0000ff;color:#ffffff;\"> <span id = \"estePeriodoContable\" onclick = \"carga_div('core/presentacion/periodo.php','Seleccione el Peridodo',300,'','','',102)\">".$_SESSION['periodo'.__baseDatos]['nombre']."</span></h3></div><div style=\"clear: both\"></div>
+                    <input type = \"hidden\" id = \"fechaInicia".__baseDatos."\" value = \"".$_SESSION['periodo'.__baseDatos]['fechaInicia']."\" ><input type = \"hidden\" id = \"fechaTermina".__baseDatos."\" value = \"".$_SESSION['periodo'.__baseDatos]['fechaTermina']."\" >";
+        
+        $salida.= "<div id = \"mapa\"><div id = \"headers\"></div><div id =\"dependenciaList\">";
+        $salida.="<div align = \"center\" id =\"logoInt\" style = \"position:relative;width:944px;min-height:128px;\"><h1 align=\"right\"  style = \"padding-top:50px;padding-right:20px;\"> </h1> </div>";
+        $auxDep = NULL;
+        
+        if ($filasDependencia )
+            foreach ($filasDependencia as $key => $value) {
+                if ($auxDep!=$value['idTipoDependencia']){
+                    $listaDependencias = new tabla("`tipoDepartamento`");
+                    $condicion = array("idTipoDepartamento"=>$value['idTipoDependencia']);
+                    $filasTipoDependencia = $listaDependencias->consultarDatos("*",$condicion,"","","","", $objetoDB); 
+                    $auxDep=$value['idTipoDependencia'];
+                    $salida.=" <div style=\"clear: both\"></div>";
+                    $salida.="<div><h3>".$filasTipoDependencia[0]['nombre']."</h3></div>";
+                    $salida.="<hr />";
+                }
+                $salida.= "<div onclick=\"cargarDependencia('".$value['idDependencia']."')\" class = \"dependenciaItem\"><div class = \"dependenciaNombre\">".$value['nombre']."</div></div>";
+            }
+
+        
+        
+        $condicion = array("idDependencia"=>$dependencia);
+        $filasDependencia = $adminstrar_registros->consultarDatos("*",$condicion,"\"idTipoDependencia\"","","","", $objetoDB); 
+
+        $salida.="<div style=\"clear:both\"><hr /></div>";
+        foreach (explode("|",$filasDependencia[0]['opciones']) as $key => $value) {
+            if($value!=""){
+            $auxComponente = explode(":", $value);
+                if ($auxComponente[1]=="true"){
+                    //echo "select * from 0003_auditables where componente  = ".$auxComponente[0];
+                    $queryAuditables = $objetoDB->query("select * from 0003_auditables where componente  = ".$auxComponente[0],1);
+                    $filasDocumentosAuditables = $objetoDB->fetchObject($queryAuditables);
+                    do{
+                       if (isset($filasDocumentosAuditables->nombre)){
+                        $salida.=$filasDocumentosAuditables->nombre." Pendiente";
+                        $globales = new cargar_variables();
+                        $procesa_xml = new xml_procesador($globales->CAplicacion."modulos/".$filasDocumentosAuditables->rutaFormaXML,$globales->CAplicacion."lenguajes/".__lenguaje.".xml");
+                        $forma = new procesar_formas($procesa_xml,$globales->CAplicacion."modulos/".$filasDocumentosAuditables->rutaFormaXML,$filasDocumentosAuditables->rutaFormaXML);
+                        $filtroAud = NULL;
+                        foreach (explode("|", $filasDocumentosAuditables->filtroAuditoria) as $key => $value) {
+                            $auxFiltroAud = explode(":", $value);
+                            $filtroAud[$auxFiltroAud[0]] = $auxFiltroAud[1];
+                            
+                        }
+                        
+
+                        $salida.= $forma->construyeGrilla($filtroAud,1,0,0,NULL,0,1);    
+                   }
+                    }while($filasDocumentosAuditables = $objetoDB->fetchObject($queryAuditables));
+                    
+
+                }
+            }
+                 
+        }
+        $salida.="<div style=\"clear: both\"></div></div>";
+        $variables = new cargar_variables();
+	$menus = explode(",",$variables->menus);
+	
+	if (!isset($menus[1]))
+		$menus = array("","","");
+	
+        $salida.="<div id = \"registros\"><div class = \"tituloMenu\">$menus[0]</div> ".$this->armar_mapa("misional")."</div>";
+        $salida.="<div id = \"apoyoEmpresa\"><div class = \"tituloMenu\">$menus[1]</div> ".$this->armar_mapa("apoyoEmpresa")."</div>";
+	$salida.="<div id = \"apoyoEmpresa\"><div class = \"tituloMenu\">$menus[2]</div> ".$this->armar_mapa("otro")."</div>";
+	
+        $salida.="<div id = \"apoyoSistema\" style = \"display:none;\">".$this->armar_mapa("apoyoSistema")."<div  style = \"width:100%;text-align:right;padding-top:15px;padding-bottom:5px;cursor:pointer;\"><span>?</span><span style = \"padding-left:10px\" onclick = \"$('apoyoSistema').setStyle('display', 'none');\">X</span></div></div>";
+         if (isset ($_SESSION['empleado'.__baseDatos]))
+            $salida.="<div id = \"usuarioActual\" ><span>Usuario Actual</span><br /><input readonly  size = \"3\"  style = \"width:70px;border:none;background:transparent;font-size:8px;color:#ffffff;\" name = \"sessionActual\" id = \"sessionActual\" value = \"".$_SESSION['empleado'.__baseDatos]."\" type = \"text\" /></div>";
+            else
+            $salida.="<h1>La session ha Caducado por Favor <a href = \"core/salir.php\">Cerrar el Sistema</a></h1>";    
+        $salida.="</div>";
+        return $salida;
+        // section 127-0-1-1--620d402:132aba7ae3e:-8000:000000000000125F end
+    }
+    
+} /* end of class navegacion */
+?>

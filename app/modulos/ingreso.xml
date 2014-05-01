@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<formularios >
+    <formulario id = "1" columas = "1" ancho = "232" titulo = "Registro" >
+        <campo nombre = "usuario" validar = "requerido" guardar = "1" tipo = "texto"  >Usuario</campo>
+        <campo nombre = "contrasena"   validar = "requerido" guardar = "1" tipo = "password" >Clave</campo>
+        <campo nombre = "Ingresar" valor="Ingresar" tipo="boton_enviar" recibe="indice.php|contenido"><![CDATA[  ]]></campo>
+    </formulario>
+</formularios>

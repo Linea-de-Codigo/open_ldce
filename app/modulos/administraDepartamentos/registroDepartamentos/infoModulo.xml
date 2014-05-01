@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modulo>
+    <titulo>Registro Proyecto</titulo>
+    <iniciar>departamento.xml</iniciar>
+    <id>centroCostos</id>
+    <js>departamento.js</js>
+    <css>departamento.css</css>
+    <tipo>apoyoSistema</tipo>
+</modulo>

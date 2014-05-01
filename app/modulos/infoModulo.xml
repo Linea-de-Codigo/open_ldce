@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modulo>
+    <titulo>Inicio</titulo>
+        <iniciar>NULL</iniciar>
+         <id>logIn</id>
+    <js>inicio.js</js>
+</modulo>
