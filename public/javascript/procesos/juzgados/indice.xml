@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<formularios >
+    <formulario id = "1" columas = "1" ancho = "95%" titulo = "Registro de Procesos" >
+        <datos tabla = "juzgados"  llave = "idJuzgado" conexion= "con1" guardar = "1" eliminar = "1" buscar = "1" listaBuscar = "Cons.:idJuzgado|Descripcion:descripcion" />
+	<campo nombre = "idJuzgado"  autonumerico="1" tipo = "texto" guardar = "1" >Cons.</campo>
+	<campo nombre = "codJuzgado"  tipo = "texto"    guardar = "1">Codigo</campo>
+        <campo nombre = "descripcion" tipo = "texto" validar = "" guardar = "1" bandera = "">Descripcion Juzgado</campo>
+	
+    </formulario>
+</formularios>

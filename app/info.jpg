@@ -1,7 +1,3 @@
 <?
-define("__baseDatos", "database");	
-define("__lenguaje", "es");	
-define("__ArchivoVariables", "/home/user/varaibles/variables.xml");
-define("__superCore", "/var/superCore/");
-define("__negocio", "/etc/httpd/htdocs/");
+include ("conf.php");
 ?>

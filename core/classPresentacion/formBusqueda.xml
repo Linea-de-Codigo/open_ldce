@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<formularios >
+    <formulario id = "1" columas = "3" ancho = "90%" titulo = "Buscar" >
+        <campo nombre = "Campo"  tipo = "combo" tomarLista = "campo1,campo2,campo3|valor1,valor2,valor3"   >Campo</campo>
+        <campo nombre = "Dato" tipo = "texto" guardar = "1" >Dato</campo>
+        <campo nombre = "Buscar" tipo = "boton_enviar"  recibe = "busca.php|resultados_busqueda" > </campo>
+        <eHtml><![CDATA[<div id = "resultados_busqueda">Hola</div>  ]]></eHtml>
+    </formulario>
+</formularios>
