@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<formularios >
+    <formulario id = "1" columas = "1" ancho = "60%">
+	<titulo>Auditoria de Registros</titulo>
+        <datos tablaBuscar = "(select * from logtransacciones order by fechatransaccion desc) as tbl" tabla = "logtransacciones" llave = "id" conexion= "con1"  buscar = "1"/>        	
+	
+        <campo   nombre = "id"  tipo = "oculto" autonumerico="1" listar = "1"  >Código</campo>
+	<campo nombre="fechatransaccion" tipo ="texto" listar = "1" validar = "texto" tamano="25"  guardar = "1"   evento="">Fecha</campo>
+        <campo nombre="horatransaccion" listar = "1" tipo ="texto"   evento="">Hora</campo>
+        <campo nombre="nombretabla" tipo ="texto"  listar = "1" evento="">Tabla/Modulo</campo>
+        <campo nombre="loginusuario" tipo ="texto" listar = "1"  evento="">Usuario</campo>
+        <campo nombre="accion" tipo ="texto" listar = "1"  evento="">Accion</campo>
+        <campo nombre="ip" tipo ="texto" listar = "1"  evento="">Direccion IP</campo>
+        <campo nombre="querysql" tipo ="memo" columnas = "40" filas = "5"   evento="">Accion Ejecutada</campo>
+	</formulario>
+</formularios>
+
+	 	 	 	 	 	 	

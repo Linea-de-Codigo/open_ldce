@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modulo>
+    <titulo>Auditoria de Registros</titulo>
+     <tipo>apoyoSistema</tipo>
+     <id>auditoriaRegistros</id>
+     <iniciar>auditoriaRegistros.xml</iniciar>
+     <js>auditoriaRegistros.js</js>
+</modulo>
