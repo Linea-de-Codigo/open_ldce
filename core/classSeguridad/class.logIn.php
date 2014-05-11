@@ -26,6 +26,7 @@ class comprobarUsuario{
 			}
 		}else{ 
                     $filtroPrevio =array("nombreUsuario"=>$usuario,"contrasena"=>$contrasena);
+                    
                     $buscarUsuarioPrevio = $this->administrarTabla->consultarDatos($camposB,$filtroPrevio,"","","","", $this->conecBaseDatos);
                     return $buscarUsuarioPrevio;
                 }

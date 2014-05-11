@@ -1,7 +1,3 @@
 <?
-define("__baseDatos", "sioopide_sio");	
-define("__lenguaje", "atecsa");	
-define("__ArchivoVariables", "/home/sioopide/variables/variables.xml");
-define("__superCore", "/var/superCore/");
-define("__negocio", "/etc/httpd/htdocs/");
+include "conf.php";
 ?>

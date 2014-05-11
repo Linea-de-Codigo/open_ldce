@@ -9,7 +9,7 @@ session_start();
     require_once  __superCore."classNegocio/tabla.php";
     
     $globales = new cargar_variables();
-    $conDatosEdita = new db($globales, __baseDatos,"editar");
+    $conDatosEdita = new db($globales, __baseDatos,"seleccionar");
     $administrarTabla = new tabla("usuario");
     $comprobarUsuario = new comprobarUsuario($conDatosEdita,$administrarTabla);
     $declararSesiones = array("idUsuario"=>"idUsuario","user"=>"nombreUsuario","perfil"=>"idPerfil","empleado"=>"idEmpleado","idDependencia"=>"idDependencia");

@@ -17,8 +17,8 @@
     </carpetas>
     <base_datos accion = "editar">
         <motor>mysql</motor>
-        <usuario>user</usuario>
-        <clave>pass</clave>
+        <usuario>root</usuario>
+        <clave></clave>
     </base_datos>
     <base_datos accion = "seleccionar">
         <motor>mysql</motor>
