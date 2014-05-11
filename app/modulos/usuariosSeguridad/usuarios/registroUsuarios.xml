@@ -6,6 +6,6 @@
         <campo autonumerico="1"  nombre = "idUsuario"  tipo = "oculto" listar = "1" guardar = "1" >Codigo</campo>
         <campo  nombre = "nombreUsuario"  tipo = "texto" listar = "1" validar = "requerido" tamano="10" guardar = "1" >Nombre Usuario</campo>
         <campo nombre = "idPerfil"  tipo = "lista_ajax" listar = "1"   tomarLista = "perfil|idPerfil|nombrePerfil" validar = "requerido" guardar = "1">Perfil</campo>
-        <campo nombre = "idEmpleado"  tipo = "lista_ajax" listar = "1"  tomarLista = "(SELECT `idTercero`,CONCAT(`nombre`,char(32),`apellido`) as emp FROM `tercero`) as t |idTercero|emp" validar = "requerido" guardar = "1">Empleado</campo>
+        <campo nombre = "idEmpleado"  tipo = "texto" listar = "1"  tomarLista = "_empleados1|idTercero|nombreCompleto" validar = "requerido" guardar = "1">Empleado</campo>
     </formulario>
 </formularios> 

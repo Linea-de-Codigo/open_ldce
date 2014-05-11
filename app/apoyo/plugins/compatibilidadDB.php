@@ -9,11 +9,9 @@ class compatibilidadDB{
               $conexion = $this->baseDatos->setEncoding();
     }
     public function ejecutaSQL($ql,$esperaRecord = 0){
-        
         return $this->baseDatos->query($ql,$esperaRecord);
-        
     }
-    public function arrayRegistros($tabla,$campos,$filtro=NULL){
+    public function arrayRegistros($tabla,$campos,$filtro=NULL,$escribeSQL=0){
        
         $filtroFinal = NULL;
         
@@ -23,6 +21,10 @@ class compatibilidadDB{
         $consulta = NULL;
         
        $sql = "select $campos from $tabla $filtroFinal";
+       
+       if ($escribeSQL==1)
+           echo $sql;
+       
         $queryresult = $this->ejecutaSQL($sql, 1);
         while($row=$this->baseDatos->fetchArray($queryresult))
         {
@@ -31,15 +33,5 @@ class compatibilidadDB{
             $this->baseDatos->freeResult($queryresult);
        return $consulta;
     }
-    public function creaArray($queryresult){
-            $consulta = NULL;
-           while($row=$this->baseDatos->fetchArray($queryresult))
-        {
-            $consulta[]=$row;
-	}
-            $this->baseDatos->freeResult($queryresult);
-       return $consulta; 
-    }
-    
 }
 ?>

@@ -6,9 +6,6 @@
         #botonesPanel{
             display:none;
            }
-           #mapa > div {
-    margin: 0 auto;
-}
       
     </style>
     <meta http-equiv=\"Content-Type' content='text/html; charset=UTF-8\">
@@ -16,16 +13,16 @@
         $javascript
         
   </head>
-  <body style = \"background: url(images/intro.png) center top no-repeat;\" onLoad = \"cargarSimple('$moduloCarga','mapa','/inicio.js','inicio.css')\">
-
+  <body onLoad = \"cargarSimple('$moduloCarga','mapa','/inicio.js','inicio.css')\">
+<div align = \"center\">
 <div id = \"contenido\" style = \"height:400px;\">
+<div align = \"center\" style = \"position:relative;background:url(images/cabezote.jpg);width:1150px;height:128px;\"></div>
 
-
-<div id = \"mapa\"  style = \"height:250px;margin-top:100px;  \">
+<div id = \"mapa\"  style = \"height:250px;margin-top:100px; background: #FFFFFF url(); \">
     
     </div>
 </div>
-
+</div>
     {$errores}
   </body>
   

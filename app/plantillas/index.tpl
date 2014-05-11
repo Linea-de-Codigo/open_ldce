@@ -7,23 +7,21 @@
 
         $css
         $javascript
-	<script type=\"text/javascript\" src = \"apoyo/cargaSVG.js\"></script>
+	<script type=\"text/javascript\" src = \"apoyo/dientes.js\"></script>
+        <script type=\"text/javascript\" src = \"http://184.171.244.47/negocio/javascript/graficos/flotr2.min.js\"></script>
 <style>
     #idSolicitud_m{
         width:500px;
         font-size:16px;
         font-weight:bold;
     }
-    #mapa {
-        
-    }
 </style>
   </head>
-  <body style = \"margin:0;padding:0;background: url(images/fonfolinea.png) center top repeat-y;\" onLoad = \"cargar('$moduloCarga')\">
-  
-     <div style = \"background: url(images/cideccTop.png) center top no-repeat;\" id = \"contenido\" align = \"left\">
+  <body onLoad = \"cargar('$moduloCarga')\">
+  <div align = \"center\">
+     <div id = \"contenido\" align = \"left\">
     </div>
     {$errores}
-    
+    </div>
   </body>
 </html>

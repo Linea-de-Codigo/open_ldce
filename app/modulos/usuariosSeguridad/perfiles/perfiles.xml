@@ -7,6 +7,6 @@
         <campo  nombre = "nombrePerfil"  tipo = "texto" listar = "1" validar = "requerido" tamano="15" guardar = "1" >Nombre Perfil</campo>
         <campo  nombre = "descripcion"  tipo = "texto" listar = "1" validar = "requerido" tamano="20" guardar = "1" >Descripción</campo>
         <campo nombre="activo" tipo ="grupo_opciones" ancho = "100%" guardar = "1" valores="1|0" titulos="Sí|No" predeterminado="" evento="">Activo:</campo>
-         <grilla llaveExterna  = "idPermiso" tabla = "(select permiso.*, modulo.nombreModulo from permiso inner join modulo on permiso.idModulo = modulo.idModulo) as T" titulo = "Permisos del Perfil" llave ="idPerfil" campos = "Cosn.:idPerfil:oculto|Id Prospecto:idPermiso:oculto|Modulo:nombreModulo:texto" formaAdministra = "permiso.xml"  />
+         <grilla llaveExterna  = "idPermiso" tabla = "permiso" titulo = "Permisos del Perfil" llave ="idPerfil" campos = "Cosn.:idPerfil:oculto|Id Prospecto:idPermiso:oculto|Modulo:idModulo:texto" formaAdministra = "permiso.xml"  />
     </formulario>
 </formularios> 

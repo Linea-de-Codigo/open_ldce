@@ -5,14 +5,12 @@ root {
 body{
     font-family:  Verdana, Geneva, sans-serif;
     font-size: 13px;
-	
+	background: url(../images/fondo-negro.png) repeat-x #0076ae;
 	
 }
-#dependenciaList hr{
-    display: none;
-}
-#logoInt{
 
+#logoInt{
+	background:url(../images/cabezote.jpg);
 }
 #contenidosMenu{
     background-color: #bee4f8;
@@ -66,6 +64,7 @@ label{
 display: none;
 }
 .contenidos_box_titulo{
+    background:url(../images/barraBotones.png);
     cursor:  move;
      border-radius: 10px 10px 0px 0px; 
      -moz-border-radius:10px 10px 0px 0px; 
@@ -162,11 +161,12 @@ margin-left: -325px;
     background-color:#cccccc;
 }
 button.boton, input.boton{
+    background:url(../images/barraBotones.png);
      border:transparent;
      height: 30px;
      cursor: pointer;
          font-size: 12px;
-		
+		 color:#dddddd;
 }
 
 a.boton{
@@ -192,33 +192,32 @@ thead{
         font-size: 10px;
 }
 #contenido{
-    margin: 0 auto;
     width: 1150px;
-       
-     
+          padding: 10px;
+     position: relative;
     -webkit-user-select: none;
     -moz-user-select: none;
     -khtml-user-select: none;
 
 }
 #armar_migas{
-    font-size: 8px; 
-    background: #FFFFFF;
+    font-size: 16px;
 }
 #mapa{
     top:33px;
-    
+    position: absolute;
     width: 1148px;
-    
+    border: solid 1px #ffffff;
     border-radius: 10px;
     -moz-border-radius: 10px;
-       
+       background: #ffffff url(../images/Barralateral.jpg) 963px 116px no-repeat;
        overflow:auto;
 }
 #respuesta{
     min-height: 0px;
 }
 .botonLista{
+   background: url(../images/remove.png) center center no-repeat transparent; 
    border:none;
    cursor: pointer;
 }
@@ -228,7 +227,7 @@ thead{
 .grilla{
     overflow: auto;
     margin: 10px;
-    background: #ffffff;
+    background: #eef4f8;
     border-radius: 10px;
     -moz-border-radius:10px;
     -moz-border-radius: 10px;
@@ -290,7 +289,7 @@ input:focus,select:hover{
     border: none 1px;
 }
 .divCampo{
-          text-align: left;
+          text-align: right;
             vertical-align: text-top;
 }
 .divCampo label{
@@ -302,38 +301,36 @@ input:focus,select:hover{
 #dependenciaList{
     
     float: left;
-    padding:  5px 5px 5px 5 ;
-    margin: 5px;
-    padding-top: 100px;
+    padding: 5px 5px 5px 5px;
+    margin: 5px 5px 5px 5px;
     width: 920px;
-    min-height: 500px;
+    min-height: 714px;
 }
 .dependenciaItem{
-    
+    box-shadow: 2px 2px 5px #999;
     float: left;
-    padding: 15px 5px 0px 5px;
-     margin:auto auto;
-    width: 140px;
-    height: 55px;
+    padding: 5px 5px 5px 5px;
+    margin: 5px 5px 5px 5px;
+    width: 90px;
+    height: 80px;
     cursor: pointer;
-    font-weight: bold; 
-    background: url(../images/boton_cidecc.png);
+    text-align: center;
 }
 .dependenciaNombre{
     font-size: 12px;
     text-align: center;
 }
 #registros{
- background-color: #FFFFFF;
-    border-radius: 10px 0 0 10px;
+    
     float: right;
-    margin: 5px 0 5px 5px;
-    padding: 7px;
-    width: 170px
+    background-color:#0076ae;
+    padding: 5px 5px 5px 5px;
+     margin: 5px 5px 5px 5px;
+    width: 170px;
     
 }
 #apoyoEmpresa{
-	
+	background-color:#0076ae;
     float: right;
     
     padding: 5px 5px 5px 5px;
@@ -359,7 +356,7 @@ input:focus,select:hover{
     z-index:10;
 	margin-top:3px;
     cursor: pointer;
-	color:#262626;
+	color:#ffffff;
 }
 .migaDependenciasActual{
     cursor: pointer;
@@ -371,7 +368,7 @@ input:focus,select:hover{
     height: 30px;
     margin: 5px;
     cursor: pointer;
-
+	background:url(../images/grid.png);
     top: 3px;
 	left: 3px;
 }
@@ -395,13 +392,13 @@ table thead.ordenable{
 table thead tr th.seleccionadaAbajo{
     color: #ffffff;
     background-color: #999999;
-    
+    background-image:url(../images/desc.gif);
      background-position: right center;
     background-repeat: no-repeat;
     
 }
 table thead tr th.seleccionable{
-    
+    background-image:url(../images/sort.gif);
     background-position: right center;
     background-repeat: no-repeat;
     
@@ -409,7 +406,7 @@ table thead tr th.seleccionable{
 table thead tr th.seleccionadaArriba{
     color: #ffffff;
     background-color: #999999;
-    
+    background-image:url(../images/asc.gif);
      background-position: right center;
     background-repeat: no-repeat;
     
@@ -429,20 +426,20 @@ table thead tr th.seleccionadaArriba{
     display:block;
     padding: 3px;
     font-weight: bold;
-	color: #333333;
+	color: #ffffff;
 }
 .itemMapa span:hover{
 	
 	
-	color: #666666;
+	color: #ffffff;
 	
 }
 #botonesPanel{
-	position:absolute;
+	position:fixed;
 	top:2px;
-	right: 221px;
+	width:1140px;
         height: 40px;
-        
+        background: url(../images/fondo-negro.png) repeat-x ;
 }
 
 .contenidos_box_contenido  #botonesPanel{

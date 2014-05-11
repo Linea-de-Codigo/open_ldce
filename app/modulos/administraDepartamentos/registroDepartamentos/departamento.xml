@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <formularios >
     <formulario id = "1" columas = "2" ancho = "100%" titulo = "" >
-        <titulo>Rregistro de Proyecto</titulo>
+        <titulo>Rregistro de Consultorios</titulo>
         <campo nombre="separadorUbicacion" tipo="separador" ancho = "100%" >Información General</campo>
         <datos tabla = "dependencia" tablaBuscar = "dependencia" llave = "idDependencia" conexion= "con1" guardar = "1" eliminar = "1" buscar = "1"  />
         <campo  autonumerico="1" nombre = "idDependencia"  tipo = "texto" listar = "1" validar = "requerido" tamano="10" guardar = "1" >$idDependencia</campo>
-        <campo nombre = "nombre" validar = "requerido" tipo = "texto" listar = "1" tamano = "15" guardar = "1" >Proyecto</campo>
-        <campo nombre = "descripcion" validar = "requerido" tipo = "texto" ancho = "100%" tamano = "60" guardar = "1" >Descripcion</campo>
+        <campo nombre = "nombre" validar = "requerido" tipo = "texto" listar = "1" tamano = "15" guardar = "1" >Consultorio</campo>
+        <campo nombre = "descripcion" validar = "requerido" tipo = "texto" tamano = "20" guardar = "1" >Descripcion</campo>
+        <campo nombre = "idPadre"  tipo = "lista_ajax"  tomarLista = "dependencia|idDependencia|nombre" validar = "" guardar = "1">Centro de Costos</campo>
           
     </formulario>
 </formularios> 

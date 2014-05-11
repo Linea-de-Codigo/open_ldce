@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <modulo>
-    <titulo>Proyectos</titulo>
-    <tipo>misional</tipo>
+    <titulo>Centro Costos</titulo>
+    <tipo>apoyoSistema</tipo>
     <id>administrarDependencias</id>
 </modulo>
